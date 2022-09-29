@@ -1,3 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    background-color:#0f0e13;
+    background-image: 
+      radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+      radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+      radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+    font-family: 'Poppins', sans-serif;
+  }
+  .blue-glassmorphism {
+    background: rgb(39, 51, 89, 0.4);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+  }
+  
+  .white-glassmorphism {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .eth-card {
+    background-color:#a099ff;
+    background-image: 
+      radial-gradient(at 83% 67%, rgb(152, 231, 156) 0, transparent 58%), 
+      radial-gradient(at 67% 20%, hsla(357,94%,71%,1) 0, transparent 59%), 
+      radial-gradient(at 88% 35%, hsla(222,81%,65%,1) 0, transparent 50%), 
+      radial-gradient(at 31% 91%, hsla(9,61%,61%,1) 0, transparent 52%), 
+      radial-gradient(at 27% 71%, hsla(336,91%,65%,1) 0, transparent 49%), 
+      radial-gradient(at 74% 89%, hsla(30,98%,65%,1) 0, transparent 51%), 
+      radial-gradient(at 53% 75%, hsla(174,94%,68%,1) 0, transparent 45%);
+  }
+  
+  .login-button{
+    color:white;
+    background-color:rgb(28, 33, 190);
+    border:2px solid rgb(13, 18, 154);
+    border-radius:100px;
+    
+    padding: .3em 1.2em;
+    margin:5px;
+        
+    background-size: 200% 100%;	
+    background-image: linear-gradient(to right, transparent 50%, rgb(28, 33, 190) 50%);
+    transition: background-position .3s cubic-bezier(0.19, 1, 0.22, 1) .1s, color .5s ease 0s, background-color .8s ease;
+  }
+  
+  .login-button:hover{
+    color:rgba(255, 255, 255, 1);
+    background-color:rgb(113, 150, 192);
+    background-position: -99% -100%;
+  }
