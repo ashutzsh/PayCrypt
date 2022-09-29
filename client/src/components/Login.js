@@ -21,7 +21,7 @@ const Login = () => {
       <div className='min-w-full h-4/5 flex justify-center flex-col items-center'>
         <img className='h-20 mt-2' src='paycrypt5.png' alt='PayCrypt' />
         <div className='w-1/3 h-40 mt-4 white-glassmorphism bg-opacity-70 p-2 shadow-lg border-opacity-40  flex flex-col justify-center items-center'>
-          <h1 className='text-white text-2xl font-medium text-center'>Login</h1>
+          <h1 className='text-white text-2xl mb-4 font-medium text-center'>Login</h1>
           { ethereum != undefined ?
               <div onClick={LoginWallet} className='flex border-opacity-60 bg-opacity-90 text-lg font-medium login-button cursor-pointer justify-center items-center'>Connect with Metamask
               <img className='h-7' src='metamask.png' alt=''/>
