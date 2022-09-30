@@ -52,19 +52,19 @@ const Header = () => {
         <div className={`${showChains ? "" : "hidden"} absolute right-0 z-50`}>
           {/* Ethereum Mainnet */}
           <div onClick={changeToEthereum} className="text-xl py-2 px-4 mr-2 font-sans border-opacity-60 border-2 border-blue-900 font-medium cursor-pointer hover:bg-gray-900 bg-black text-white rounded-lg flex justify-between items-center">
-            <img className="h-6 mr-2" src="ethereum-eth.svg" />
+            <img className="h-6 mr-2" src="ethereum-eth.svg" alt='' />
             Ethereum Mainnet
           </div>
 
           {/* Polygon Mumbai */}
           <div onClick={changeToPolygon} className="text-xl py-2 px-4 mr-2 font-sans border-opacity-60 border-2 border-blue-900 font-medium cursor-pointer hover:bg-gray-900 bg-black text-white rounded-lg flex justify-between items-center">
-            <img className="h-6 mr-2" src="polygon.png" />
+            <img className="h-6 mr-2" src="polygon.png" alt='' />
             Polygon Mumbai
           </div>
 
           {/* Goerli */}
           <div onClick={changeToGoerli} className="text-xl py-2 px-4 mr-2 font-sans border-opacity-60 border-2 border-blue-900 font-medium cursor-pointer hover:bg-gray-900 bg-black text-white rounded-lg flex justify-between items-center">
-            <img className="h-6 mr-2" src="ethereum-eth.svg" />
+            <img className="h-6 mr-2" src="ethereum-eth.svg" alt='' />
             Goerli Testnet
           </div>
 
@@ -77,7 +77,6 @@ const Header = () => {
     </div>
     </div>
 
-    
     </div>
   )
 }
