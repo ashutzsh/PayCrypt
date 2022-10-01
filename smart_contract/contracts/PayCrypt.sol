@@ -22,3 +22,8 @@ contract PayCrypt{
         emit recipients(msg.sender, recipient, name); //emits recipients event on line 6
     } 
 }
+
+
+// Contract Addresses
+// Goerli testnet address: 0xFd2BD5Fc4211EAc0027C4862dE2e0eAF81Fa81D5
+// Polygon Mumbai address: 0x3b5578C8e4157AA0A71D114c554fE66B1f57c8D2
