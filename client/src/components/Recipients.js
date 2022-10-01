@@ -1,6 +1,8 @@
 import React, {useState, useContext, useEffect} from 'react'
 import { AppState } from "../App";
 import {ethers} from 'ethers';
+import { Bars, TailSpin } from "react-loader-spinner";
+
 
 const Recipients = () => {
   const App = useContext(AppState);
@@ -14,8 +16,8 @@ const Recipients = () => {
 
   useEffect(() => {
     async function getData() {
-      const recipients = await App.paypalContract.filters.recipeints(App.address)
-      const recipentsData = await App.paypalContract.queryFilter(recipients);
+      const recipients = await App.payCryptContract.filters.recipients(App.address)
+      const recipentsData = await App.payCryptContract.queryFilter(recipients);
       setData(recipentsData)
     }
 
@@ -24,15 +26,17 @@ const Recipients = () => {
 
   const addRecipient = async () => {
     try {
-      const tx = await App.paypalContract.addRecipient(recipientAddress, recipientName);
+      App.setTxLoading(true);
+      const tx = await App.payCryptContract.addRecipient(recipientAddress, recipientName);
       await tx.wait();
+      App.setTxLoading(false);
       setMessage("Recipient Saved Sucessfully!")  
       setRecipientAddress('');
       setRecipientName('');    
     } catch (error) {
       setError(error.message)
     }
-
+    
     let nextnum = num + 1;
     setNum(nextnum);
   }
@@ -48,9 +52,20 @@ const Recipients = () => {
 
        <input onChange={(e) => setRecipientName(e.target.value)} value={recipientName} className="mt-2 w-3/4 p-3 bg-black border-2 border-blue-900 border-opacity-60 bg-opacity-70 outline-none rounded-lg" placeholder="Paste Recipient Name" />
 
-       <div onClick={addRecipient} className="flex mt-4 w-3/4 cursor-pointer justify-center items-center p-2 bg-green-700 bg-opacity-70 border-2 border-blue-900 border-opacity-80 text-xl font-medium rounded-lg">
-        Add Recipient
+       { App.txLoading ?
+        <div className="flex mt-4 w-4/5 cursor-pointer justify-center items-center p-2 bg-blue-700 bg-opacity-70 border-2 border-blue-900 border-opacity-80 text-xl font-medium rounded-lg">
+          <Bars
+            width={30}
+            height={46}
+            color={'white'}
+          />
+        </div>
+        :
+      <div onClick={addRecipient} className="flex mt-4 w-4/5 cursor-pointer justify-center items-center p-2 bg-blue-700 hover:bg-blue-600 ease-in duration-200 bg-opacity-70 border-2 border-blue-800 border-opacity-80 text-xl font-medium rounded-lg">
+        Save Recipient
       </div>
+      }
+
 
       <p className="text-red-600 text-lg mt-2 px-3">{error}</p>
       <p className="text-green-600 text-lg mt-2 px-1">{message}</p>
@@ -64,6 +79,7 @@ const Recipients = () => {
           <div className="w-full py-2 px-2">
             <p className="text-xl font-mono">Name: {e.args.recipientName}</p>
             <p className="text-xs font-mono">address: {e.args.recipient}</p>
+            <p className='text-xs flex justify-center mt-2'>Click card to select</p>
           </div>
         </div>
         </div>

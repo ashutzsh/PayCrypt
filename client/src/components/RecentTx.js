@@ -8,8 +8,8 @@ const RecentTx = () => {
 
   useEffect(() => {
     async function getData() {
-      const tx = await App.paypalContract.filters.transactions(App.address)
-      const txData = await App.paypalContract.queryFilter(tx);
+      const tx = await App.payCryptContract.filters.transactions(App.address)
+      const txData = await App.payCryptContract.queryFilter(tx);
       setData(txData)
     }
 
@@ -27,7 +27,7 @@ const RecentTx = () => {
             <p className="text-xs font-mono">to: {e.args.to}</p>
           </div>
         </div>
-        <a target={'_blank'} href={`${App.explorer}/tx/${e.transactionHash}`}>
+        <a target={'_blank'} href={`${App.explorer}/tx/${e.transactionHash}`} rel="noreferrer">
           <div className="font-mono w-full rounded-b-lg bg-gray-900 text-center cursor-pointer text-opacity-30">
             View Transaction
           </div>

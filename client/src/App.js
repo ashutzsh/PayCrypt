@@ -100,13 +100,13 @@ const removeToken = async () => {
 }
 
 //Now lets code the transfer fuctionalities
-
+//This function will run when we click on Transfer button on Send panel
 const transferAmount = async () => {
   setMessage('');
   setTxLoading(true);
   try {
     if(tokenChanged) {
-      const tx = await ERCContract.transfer(recipientAddress, ethers.utils.parseEther(amount));
+      const tx = await ERCContract.transfer(recipientAddress, ethers.utils.parseEther(amount)); //Running Transfer() function of ERC20 Contract
       await tx.wait();
       selectToken();
 
@@ -123,7 +123,7 @@ const transferAmount = async () => {
     } else {
       const tx = await payCryptContract._transfer(recipientAddress, symbol, {
         value: ethers.utils.parseEther(amount)
-      });
+      }); //Running _transfer() function of PayCrypt contract
 
       await tx.wait();
       getBal();
@@ -138,6 +138,7 @@ const transferAmount = async () => {
   setTxLoading(false);
  
   }
+
 
   const saveTx = async () => {
   setSaveTxLoad(true);
@@ -154,6 +155,7 @@ const transferAmount = async () => {
   setSaveTxLoad(false);
 }
 
+//IMPORTANT: Be careful not to use App.set--- in App.js where you defined AppState (use set--- only) and use App.set--- in other files (not just set---)
 
   useEffect(() => {
     ethereum.on("chainChanged", async (chainId) => {

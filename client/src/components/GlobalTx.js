@@ -8,8 +8,8 @@ const RecentTx = () => {
 
   useEffect(() => {
     async function getData() {
-      const tx = await App.paypalContract.filters.transactions()
-      const txData = await App.paypalContract.queryFilter(tx);
+      const tx = await App.payCryptContract.filters.transactions()
+      const txData = await App.payCryptContract.queryFilter(tx);
       setData(txData)
     }
 
